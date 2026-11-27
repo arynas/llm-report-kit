@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "expected": {
+    "slides": 1,
+    "data_available": false,
+    "total": null,
+    "peak": null,
+    "daily_chart_points": 0,
+    "headline_links": 0
+  },
+  "layout": [
+    {
+      "page": 1,
+      "issues": []
+    }
+  ],
+  "issues": []
+}

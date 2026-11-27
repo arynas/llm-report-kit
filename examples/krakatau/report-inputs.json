@@ -1,0 +1,165 @@
+{
+  "request": {
+    "keyword": "Krakatau",
+    "start": "2026-09-01",
+    "end": "2026-09-14"
+  },
+  "query": {
+    "keyword": "Krakatau",
+    "start_date": "2026-09-01",
+    "end_date": "2026-09-14",
+    "timezone": "Asia/Jakarta",
+    "snapshot": "data-2026-10-v2"
+  },
+  "data_available": true,
+  "facts": {
+    "total": 1976,
+    "daily_trend": [
+      {
+        "date": "2026-09-01",
+        "count": 0
+      },
+      {
+        "date": "2026-09-02",
+        "count": 1
+      },
+      {
+        "date": "2026-09-03",
+        "count": 1
+      },
+      {
+        "date": "2026-09-04",
+        "count": 0
+      },
+      {
+        "date": "2026-09-05",
+        "count": 106
+      },
+      {
+        "date": "2026-09-06",
+        "count": 733
+      },
+      {
+        "date": "2026-09-07",
+        "count": 535
+      },
+      {
+        "date": "2026-09-08",
+        "count": 211
+      },
+      {
+        "date": "2026-09-09",
+        "count": 138
+      },
+      {
+        "date": "2026-09-10",
+        "count": 109
+      },
+      {
+        "date": "2026-09-11",
+        "count": 80
+      },
+      {
+        "date": "2026-09-12",
+        "count": 24
+      },
+      {
+        "date": "2026-09-13",
+        "count": 16
+      },
+      {
+        "date": "2026-09-14",
+        "count": 22
+      }
+    ],
+    "peak": {
+      "at": "2026-09-06",
+      "count": 733
+    },
+    "change": null,
+    "top_stories": [
+      {
+        "date": "2026-09-06 05:15",
+        "text": "Bandara Soekarno-Hatta Ditutup Sementara Akibat Sebaran Abu Vulkanik Gunung Anak Krakatau",
+        "url": "https://news.republika.co.id/berita/tkwueg3830000/bandara-soekarnohatta-ditutup-sementara-akibat-sebaran-abu-vulkanik-gunung-anak-krakatau",
+        "source": "republika.co.id",
+        "sources": 12,
+        "headlines": 15
+      },
+      {
+        "date": "2026-09-06 04:45",
+        "text": "Kemenhub: Bandara Soetta ditutup sementara imbas erupsi Anak Krakatau",
+        "url": "https://www.antaranews.com/berita/5727907/kemenhub-bandara-soetta-ditutup-sementara-imbas-erupsi-anak-krakatau",
+        "source": "antaranews.com",
+        "sources": 11,
+        "headlines": 19
+      },
+      {
+        "date": "2026-09-06 06:30",
+        "text": "Erupsi Anak Krakatau, 33 Penerbangan di Soetta Terdampak",
+        "url": "https://www.cnnindonesia.com/ekonomi/20260906053211-92-1400505/erupsi-anak-krakatau-33-penerbangan-di-soetta-terdampak",
+        "source": "cnnindonesia.com",
+        "sources": 11,
+        "headlines": 18
+      },
+      {
+        "date": "2026-09-06 09:00",
+        "text": "Imbas Erupsi Anak Krakatau, Penumpang Menumpuk di Bandara Soekarno-Hatta",
+        "url": "https://www.liputan6.com/news/read/8285613/imbas-erupsi-anak-krakatau-penumpang-menumpuk-di-bandara-soekarno-hatta",
+        "source": "liputan6.com",
+        "sources": 9,
+        "headlines": 13
+      },
+      {
+        "date": "2026-09-05 08:45",
+        "text": "Gunung Anak Krakatau Erupsi, Warga Diminta Jauhi Radius 3 Km",
+        "url": "https://www.metrotvnews.com/read/bw6C2m8o-gunung-anak-krakatau-erupsi-warga-diminta-jauhi-radius-3-km",
+        "source": "metrotvnews.com",
+        "sources": 8,
+        "headlines": 9
+      }
+    ]
+  },
+  "fact_sources": {
+    "total": "news_recap.total",
+    "daily_trend": "entity_trend.trend",
+    "peak": "entity_trend.peak",
+    "change": "entity_trend.change",
+    "top_stories": "entity_trend.top_stories"
+  },
+  "warnings": [
+    "The previous period (18–31 Aug 2026) is not fully inside the data, which starts on 2026-09-01, so no change numbers are given.",
+    "Sentiment labels are rough model output (63% agreement with a person, kappa 0.44); treat the shares as an estimate.",
+    "Top stories group similar headlines automatically; the grouping is approximate.",
+    "Source is news headlines only (no article text, no social media)."
+  ],
+  "outline": [
+    {
+      "title": "Data coverage",
+      "uses": [
+        "query",
+        "warnings"
+      ]
+    },
+    {
+      "title": "Headline volume and daily trend",
+      "uses": [
+        "facts.total",
+        "facts.daily_trend"
+      ]
+    },
+    {
+      "title": "Peak and example headlines",
+      "uses": [
+        "facts.peak",
+        "facts.top_stories"
+      ]
+    },
+    {
+      "title": "Data limitations",
+      "uses": [
+        "warnings"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-report-kit"
+version = "0.1.0"
+description = "Build and verify a presentation from a public GDELT news snapshot."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+dependencies = [
+    "social-listening-mcp @ https://codeload.github.com/arynas/Social-Listening-MCP/tar.gz/a39886d66d8e187efee8bd311b36a240c92db34f",
+    "python-pptx==1.0.2",
+    "PyMuPDF==1.26.5",
+]
+
+[project.scripts]
+llm-report-kit = "llm_report_kit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

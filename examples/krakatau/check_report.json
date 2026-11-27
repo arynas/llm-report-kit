@@ -1,0 +1,33 @@
+{
+  "status": "pass",
+  "expected": {
+    "slides": 4,
+    "data_available": true,
+    "total": 1976,
+    "peak": {
+      "at": "2026-09-06",
+      "count": 733
+    },
+    "daily_chart_points": 14,
+    "headline_links": 3
+  },
+  "layout": [
+    {
+      "page": 1,
+      "issues": []
+    },
+    {
+      "page": 2,
+      "issues": []
+    },
+    {
+      "page": 3,
+      "issues": []
+    },
+    {
+      "page": 4,
+      "issues": []
+    }
+  ],
+  "issues": []
+}

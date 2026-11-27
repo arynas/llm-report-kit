@@ -1,0 +1,29 @@
+{
+  "request": {
+    "keyword": "Krakatau",
+    "start": "2026-08-18",
+    "end": "2026-08-31"
+  },
+  "query": {
+    "keyword": "Krakatau",
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-31",
+    "timezone": "Asia/Jakarta",
+    "snapshot": "data-2026-10-v2"
+  },
+  "data_available": false,
+  "facts": {},
+  "fact_sources": {},
+  "warnings": [
+    "There is no data for 18–31 Aug 2026. The data covers 1 Sep – 14 Oct 2026 only."
+  ],
+  "outline": [
+    {
+      "title": "Data coverage",
+      "uses": [
+        "query",
+        "warnings"
+      ]
+    }
+  ]
+}
