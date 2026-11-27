@@ -26,12 +26,12 @@ def write_json(path, data):
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def write_outline(inputs, folder):
+def write_outline(inputs, folder, source_name="GDELT Project", source_url=SOURCE_URL):
     query, facts = inputs["query"], inputs["facts"]
     titles = [section["title"] for section in inputs["outline"]]
     if inputs["data_available"] and not facts["peak"]:
         titles.insert(2, "No matching headlines")
-    lines = [f"# {query['keyword'].title()} report outline", "", f"{query_period(query)} · `{SNAPSHOT}`", ""]
+    lines = [f"# {query['keyword'].title()} report outline", "", f"{query_period(query)} · `{query['snapshot']}`", ""]
     lines.extend(f"{i}. {title}" for i, title in enumerate(titles, 1))
     if inputs["data_available"]:
         lines.extend(("", f"Headlines in the requested period: **{facts['total']:,}**."))
@@ -41,7 +41,7 @@ def write_outline(inputs, folder):
         lines.extend(("", "The snapshot does not cover the requested dates. This report has one slide about coverage."))
     lines.extend(("", "## Data notes", ""))
     lines.extend(f"- {warning}" for warning in inputs["warnings"])
-    lines.extend(("", f"Data from the [GDELT Project]({SOURCE_URL}).", ""))
+    lines.extend(("", f"Data from the [{source_name}]({source_url}).", ""))
     (folder / "outline.md").write_text("\n".join(lines), encoding="utf-8")
     write_json(folder / "report-inputs.json", inputs)
 
@@ -75,16 +75,21 @@ def build(args, folder, work):
     inputs = make_inputs(args.data_dir, **request)
     if approved != inputs:
         raise ValueError("The saved inputs differ from the verified snapshot. Regenerate the outline and review it.")
+    result = render_checked_report(inputs, folder, work)
+    print(f"Checked {result['expected']['slides']} slide(s). No findings.")
+
+
+def render_checked_report(inputs, folder, work, source_name="GDELT Project", source_url=SOURCE_URL):
     deck = folder / "report.pptx"
-    build_report(inputs, deck, "GDELT Project", SOURCE_URL)
+    build_report(inputs, deck, source_name, source_url)
     pdf = export_pdf(deck, folder, work)
-    result = audit(inputs, deck, pdf, SOURCE_URL)
+    result = audit(inputs, deck, pdf, source_url)
     if result["status"] != "pass":
         findings = "\n".join(f"{i['artifact']} slide {i['page']}: {i['message']}" for i in result["issues"])
         raise ValueError(f"Report checks failed.\n{findings}")
-    write_outline(inputs, folder)
+    write_outline(inputs, folder, source_name, source_url)
     write_json(folder / "check_report.json", result)
-    print(f"Checked {result['expected']['slides']} slide(s). No findings.")
+    return result
 
 
 def check_existing(args):
