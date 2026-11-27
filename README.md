@@ -59,6 +59,8 @@ This report has one slide explaining the missing coverage. The check report reco
 
 The slides are in Indonesian. The snapshot contains headlines and article links. Headline volume describes the coverage of this dataset. Article link targets are checked against the snapshot, so the demo can run without visiting the article sites.
 
+Unit tests for the checker run with `pytest tests/test_verify.py` (install `pytest` first).
+
 The layout checks cover text overlap, clipping, small text, and slide bounds. Review the finished deck visually for issues such as an object covering a chart. The CLI uses local rules for verification.
 
 Data from the [GDELT Project](https://www.gdeltproject.org/). The [release datasheet](https://github.com/arynas/Social-Listening-MCP/releases/download/data-2026-10-v2/datasheet.md) describes the source data and its limitations. The MIT license covers the kit's code. The dataset retains its source attribution and [GDELT terms](https://gdeltproject.org/about.html).

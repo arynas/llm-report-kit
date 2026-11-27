@@ -36,7 +36,7 @@ def fetch_snapshot(data_dir):
         with TemporaryDirectory(prefix=".download-", dir=data_dir) as staging:
             archive = Path(staging, name + ".gz")
             url = f"{RELEASE}/download/{SNAPSHOT}/{archive.name}"
-            request = Request(url, headers={"User-Agent": "llm-report-kit/0.1.1"})
+            request = Request(url, headers={"User-Agent": "llm-report-kit/0.1.2"})
             with urlopen(request, timeout=60) as response, archive.open("wb") as output:
                 shutil.copyfileobj(response, output)
             if sha256(archive) != archive_digest:
