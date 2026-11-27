@@ -87,12 +87,26 @@ def build(args, folder, work):
     print(f"Checked {result['expected']['slides']} slide(s). No findings.")
 
 
+def check_existing(args):
+    out = args.out.resolve()
+    if out in {path.resolve() for path in (args.inputs, args.pptx, args.pdf)}:
+        raise ValueError("Choose a check report path separate from the inputs and slides.")
+    inputs = json.loads(args.inputs.read_text(encoding="utf-8"))
+    result = audit(inputs, args.pptx, args.pdf, SOURCE_URL)
+    write_json(out, result)
+    print(f"Report check {result['status']}. Findings: {len(result['issues'])}.")
+    return 0 if result["status"] == "pass" else 1
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
     fetch = commands.add_parser("fetch-data", help="download and verify the public snapshot")
     outline = commands.add_parser("outline", help="prepare the report outline and its facts")
     render = commands.add_parser("build", help="render the reviewed outline and check both files")
+    check = commands.add_parser("check", help="check an existing report against its verified facts")
+    for name in ("inputs", "pptx", "pdf", "out"):
+        check.add_argument(f"--{name}", type=Path, required=True)
     for command in (fetch, outline, render):
         command.add_argument("--data-dir", type=Path, default=Path("data"))
     for command in (outline, render):
@@ -106,6 +120,8 @@ def main(argv=None):
         if args.command == "fetch-data":
             fetch_snapshot(args.data_dir)
             return 0
+        if args.command == "check":
+            return check_existing(args)
         out = args.out.resolve()
         if out.exists():
             raise ValueError(f"Output already exists: {out}. Choose a new directory.")

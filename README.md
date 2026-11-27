@@ -33,6 +33,8 @@ The outline has four slides. Review the dates, the 1,976 headlines, the peak of 
 
 The output folder contains `outline.md`, `report-inputs.json`, `report.pptx`, `report.pdf`, and `check_report.json`. The checker verifies the displayed total and peak, the 14 editable chart values, the links and slide count, and common text layout errors. A failed check exits with its findings. Use a fresh output path for each build.
 
+To verify an existing draft, run `llm-report-kit check --inputs VERIFIED_JSON --pptx REPORT_PPTX --pdf REPORT_PDF --out CHECK_JSON`. Use the reviewed input JSON from the verified snapshot. The command writes the check report even when a defect is found. It exits with status 1 on findings.
+
 ## Out-of-coverage case
 
 With the same snapshot, request 18–31 August 2026:
