@@ -1,0 +1,165 @@
+{
+  "request": {
+    "keyword": "ott",
+    "start": "2026-09-10",
+    "end": "2026-09-23"
+  },
+  "query": {
+    "keyword": "ott",
+    "start_date": "2026-09-10",
+    "end_date": "2026-09-23",
+    "timezone": "Asia/Jakarta",
+    "snapshot": "data-2026-10-v2"
+  },
+  "data_available": true,
+  "facts": {
+    "total": 356,
+    "daily_trend": [
+      {
+        "date": "2026-09-10",
+        "count": 1
+      },
+      {
+        "date": "2026-09-11",
+        "count": 7
+      },
+      {
+        "date": "2026-09-12",
+        "count": 4
+      },
+      {
+        "date": "2026-09-13",
+        "count": 4
+      },
+      {
+        "date": "2026-09-14",
+        "count": 24
+      },
+      {
+        "date": "2026-09-15",
+        "count": 140
+      },
+      {
+        "date": "2026-09-16",
+        "count": 42
+      },
+      {
+        "date": "2026-09-17",
+        "count": 9
+      },
+      {
+        "date": "2026-09-18",
+        "count": 11
+      },
+      {
+        "date": "2026-09-19",
+        "count": 11
+      },
+      {
+        "date": "2026-09-20",
+        "count": 11
+      },
+      {
+        "date": "2026-09-21",
+        "count": 38
+      },
+      {
+        "date": "2026-09-22",
+        "count": 39
+      },
+      {
+        "date": "2026-09-23",
+        "count": 15
+      }
+    ],
+    "peak": {
+      "at": "2026-09-15",
+      "count": 140
+    },
+    "change": null,
+    "top_stories": [
+      {
+        "date": "2026-09-15 00:30",
+        "text": "KPK sita uang ratusan miliar dalam 20 koper terkait OTT ATR/BPN",
+        "url": "https://www.antaranews.com/berita/5741027/kpk-sita-uang-ratusan-miliar-dalam-20-koper-terkait-ott-atr-bpn",
+        "source": "antaranews.com",
+        "sources": 11,
+        "headlines": 13
+      },
+      {
+        "date": "2026-09-14 22:30",
+        "text": "KPK OTT di Kantor Pertanahan Kabupaten Bogor",
+        "url": "https://www.liputan6.com/news/read/8291698/kpk-ott-di-kantor-pertanahan-kabupaten-bogor",
+        "source": "liputan6.com",
+        "sources": 6,
+        "headlines": 8
+      },
+      {
+        "date": "2026-09-21 19:45",
+        "text": "Bupati Bolaang Mongondow Utara Sirajudin Lasena Terjaring OTT KPK di Jakarta",
+        "url": "https://nasional.sindonews.com/read/1752205/13/bupati-bolaang-mongondow-utara-sirajudin-lasena-terjaring-ott-kpk-di-jakarta-1789992585",
+        "source": "sindonews.com",
+        "sources": 5,
+        "headlines": 12
+      },
+      {
+        "date": "2026-09-15 00:30",
+        "text": "KPK turut tangkap Fahd Arafiq dan eks Bupati Kebumen dalam OTT ATR/BPN",
+        "url": "https://www.antaranews.com/berita/5741021/kpk-turut-tangkap-fahd-arafiq-dan-eks-bupati-kebumen-dalam-ott-atr-bpn",
+        "source": "antaranews.com",
+        "sources": 5,
+        "headlines": 9
+      },
+      {
+        "date": "2026-09-15 00:00",
+        "text": "KPK ungkap OTT Dirjen ATR/BPN dan Kakantah terkait pengurusan HGB",
+        "url": "https://www.antaranews.com/berita/5741011/kpk-ungkap-ott-dirjen-atr-bpn-dan-kakantah-terkait-pengurusan-hgb",
+        "source": "antaranews.com",
+        "sources": 5,
+        "headlines": 6
+      }
+    ]
+  },
+  "fact_sources": {
+    "total": "news_recap.total",
+    "daily_trend": "entity_trend.trend",
+    "peak": "entity_trend.peak",
+    "change": "entity_trend.change",
+    "top_stories": "entity_trend.top_stories"
+  },
+  "warnings": [
+    "The previous period (27 Aug – 9 Sep 2026) is not fully inside the data, which starts on 2026-09-01, so no change numbers are given.",
+    "Sentiment labels are rough model output (63% agreement with a person, kappa 0.44); treat the shares as an estimate.",
+    "Top stories group similar headlines automatically; the grouping is approximate.",
+    "Source is news headlines only (no article text, no social media)."
+  ],
+  "outline": [
+    {
+      "title": "Data coverage",
+      "uses": [
+        "query",
+        "warnings"
+      ]
+    },
+    {
+      "title": "Headline volume and daily trend",
+      "uses": [
+        "facts.total",
+        "facts.daily_trend"
+      ]
+    },
+    {
+      "title": "Peak and example headlines",
+      "uses": [
+        "facts.peak",
+        "facts.top_stories"
+      ]
+    },
+    {
+      "title": "Data limitations",
+      "uses": [
+        "warnings"
+      ]
+    }
+  ]
+}

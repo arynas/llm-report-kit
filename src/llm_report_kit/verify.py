@@ -83,7 +83,9 @@ def check_pptx(pptx, inputs, expected, add):
             links = {rel.target_ref for rel in slide.part.rels.values() if rel.is_external}
             page = expected[number - 1]
             check_page('pptx', number, text, links, page, add)
-            allowed = [*page[0], *page[1]]
+            # Story source names (for example liputan6.com) are shown as labels, not figures.
+            sources = [story['source'] for story in facts.get('top_stories', [])[:3] if story.get('source')]
+            allowed = [*page[0], *page[1], *sources]
             numeric = r'\d+(?:[.,]\d+)*'
             unsupported = set(re.findall(numeric, text)) - set(re.findall(numeric, ' '.join(allowed)))
             for value in sorted(unsupported):
